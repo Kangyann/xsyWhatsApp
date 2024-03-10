@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="font-inter w-full h-screen bg-v-primary">
+<body class="font-inter w-full h-screen bg-v-accent">
     <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 px-5">
         @if (session('status') && session('code') == 500)
             <div class="bg-v-secondary text-error rounded text-sm font-medium py-1 ps-4 mb-2">
@@ -29,5 +29,11 @@
         </div>
     </div>
 </body>
-
+<script>
+        function showLoading() {
+            var button = document.querySelector('button[type="submit"]');
+            button.innerHTML = '<span class="loading loading-spinner loading-sm"></span>Process';
+            button.disabled = true;
+        }
+</script>
 </html>

@@ -18,10 +18,12 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', [PageController::class, 'index']);
-Route::get('/auth/verifikasi', [PageController::class, 'verify'])->name('auth.verif');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/log/index', [PageController::class, 'log_index']);
-    Route::post('/auth/logout', [PageController::class, 'logout'])->name('auth.logout');
+    Route::middleware(['u.verif'])->group(function () {
+        Route::get('/log/dashboard', [PageController::class, 'log_index'])->name('dashboard');
+        Route::post('/auth/logout', [PageController::class, 'logout'])->name('auth.logout');
+    });
+    Route::get('/auth/verifikasi', [PageController::class, 'verify'])->name('auth.verif');
 });
 Route::middleware(['guest'])->group(function () {
     Route::resource('/auth/masuk', LoginController::class)

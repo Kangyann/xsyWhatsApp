@@ -10,11 +10,15 @@ export default {
       'v-primary': '#6096B4',
       'v-secondary': '#7BD3EA',
       'v-accent': '#B2A4FF',
+      'white': '#FFFF'
     },
     fontFamily: {
       'inter' : ['Inter']
     },
     extend: {},
+    daisyui: {
+      themes: ["light", "dark", "cupcake"],
+    },
   },
   plugins: [require('daisyui')],
 }
