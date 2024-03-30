@@ -18,6 +18,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', [PageController::class, 'index']);
+Route::post('/midtrans', [PageController::class, 'post_midtrans'])->name('midtrans');
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['u.verif'])->group(function () {
         Route::get('/log/dashboard', [PageController::class, 'log_index'])->name('dashboard');
